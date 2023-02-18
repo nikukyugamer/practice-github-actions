@@ -34,5 +34,5 @@ jobs:
       - name: Renovate を実行する
         uses: renovatebot/github-action@v34.82.0
         with:
-          configurationFile: renovate.config.js
+          configurationFile: renovate.json
           token: ${{ secrets.MY_PAT }}
