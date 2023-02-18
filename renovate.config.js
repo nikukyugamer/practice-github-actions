@@ -1,4 +1,5 @@
 module.exports = {
+  autodiscover: true,
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: ["config:base", ":timezone(Asia/Tokyo)"],
   labels: ["dependencies", "renovate"],
