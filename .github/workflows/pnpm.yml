@@ -1,0 +1,23 @@
+name: 🏃‍♂pnpm
+
+on:
+  push:
+
+jobs:
+  greet:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: コードをチェックアウトする
+        uses: actions/checkout@v3.3.0
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.27.1
+      - name: Node.js のセットアップを行う
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Node のパッケージをインストールする
+        run: |
+          pnpm install --frozen-lockfile
