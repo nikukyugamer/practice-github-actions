@@ -3,16 +3,16 @@
   "description": "fuga",
   "version": "0.0.1",
   "dependencies": {
-    "@next/font": "13.1.5",
+    "@next/font": "13.1.6",
     "@types/node": "18.14.0",
-    "@types/react": "18.0.27",
-    "@types/react-dom": "18.0.10",
-    "eslint": "8.32.0",
-    "eslint-config-next": "13.1.5",
-    "next": "13.1.5",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "eslint": "8.34.0",
+    "eslint-config-next": "13.1.6",
+    "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "4.9.4"
+    "typescript": "4.9.5"
   },
   "devDependencies": {
     "@playwright/test": "^1.30.0",
@@ -30,7 +30,7 @@
     "sass": "^1.58.0",
     "start-server-and-test": "^1.15.3",
     "stylelint": "^15.1.0",
-    "stylelint-config-recess-order": "^3.1.0",
+    "stylelint-config-recess-order": "^4.0.0",
     "stylelint-config-standard-scss": "^7.0.0",
     "tailwindcss": "^3.2.4",
     "ts-jest": "^29.0.5"
