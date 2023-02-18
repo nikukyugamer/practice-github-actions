@@ -1,5 +1,6 @@
 module.exports = {
   autodiscover: true,
+  autodiscoverFilter: "nikukyugamer/tasokare",
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: ["config:base", ":timezone(Asia/Tokyo)"],
   labels: ["dependencies", "renovate"],
