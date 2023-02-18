@@ -1,4 +1,4 @@
-name: Renovate
+name: ⏰ Renovate
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
