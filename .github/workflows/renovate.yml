@@ -6,6 +6,8 @@ concurrency:
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '00 00,06,12,18 * * *'
 
 env:
   TZ: Asia/Tokyo
