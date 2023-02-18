@@ -1,0 +1,15 @@
+module.exports = {
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: ["config:base", ":timezone(Asia/Tokyo)"],
+  labels: ["dependencies", "renovate"],
+  dependencyDashboard: true,
+  pin: {
+    automerge: false,
+  },
+  packageRules: [
+    {
+      matchPackagePatterns: ["^.*"],
+      automerge: false,
+    },
+  ],
+};
