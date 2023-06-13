@@ -23,7 +23,7 @@ specifiers:
   react: 18.2.0
   react-dom: 18.2.0
   sass: ^1.58.0
-  start-server-and-test: ^1.15.3
+  start-server-and-test: ^2.0.0
   stylelint: ^15.1.0
   stylelint-config-recess-order: ^4.0.0
   stylelint-config-standard-scss: ^7.0.0
@@ -57,7 +57,7 @@ devDependencies:
   postcss: 8.4.21
   postcss-nested: 6.0.0_postcss@8.4.21
   sass: 1.58.3
-  start-server-and-test: 1.15.4
+  start-server-and-test: 2.0.0
   stylelint: 15.1.0
   stylelint-config-recess-order: 4.0.0_stylelint@15.1.0
   stylelint-config-standard-scss: 7.0.1_6kmz6pqyyc6yqevihcpt7hoegq
@@ -5478,8 +5478,8 @@ packages:
       escape-string-regexp: 2.0.0
     dev: true
 
-  /start-server-and-test/1.15.4:
-    resolution: {integrity: sha512-ucQtp5+UCr0m4aHlY+aEV2JSYNTiMZKdSKK/bsIr6AlmwAWDYDnV7uGlWWEtWa7T4XvRI5cPYcPcQgeLqpz+Tg==}
+  /start-server-and-test/2.0.0:
+    resolution: {integrity: sha512-UqKLw0mJbfrsG1jcRLTUlvuRi9sjNuUiDOLI42r7R5fA9dsFoywAy9DoLXNYys9B886E4RCKb+qM1Gzu96h7DQ==}
     engines: {node: '>=6'}
     hasBin: true
     dependencies:
