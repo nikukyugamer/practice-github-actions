@@ -34,7 +34,7 @@ jobs:
         run: |
           pnpm install --frozen-lockfile
       - name: Renovate を実行する
-        uses: renovatebot/github-action@v38.1.13
+        uses: renovatebot/github-action@v39.0.0
         with:
           configurationFile: renovate.json
           token: ${{ secrets.MY_PAT }}
