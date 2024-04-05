@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  greet:
+  pnpm_install:
     runs-on: ubuntu-22.04
     steps:
       - name: コードをチェックアウトする
