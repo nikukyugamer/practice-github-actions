@@ -20,7 +20,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: コードをチェックアウトする
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v4.1.1
       - uses: pnpm/action-setup@v2
         with:
           version: 7.27.1
@@ -34,7 +34,7 @@ jobs:
         run: |
           pnpm install --frozen-lockfile
       - name: Renovate を実行する
-        uses: renovatebot/github-action@v35.0.0
+        uses: renovatebot/github-action@v39.2.4
         with:
           configurationFile: renovate.json
           token: ${{ secrets.MY_PAT }}
