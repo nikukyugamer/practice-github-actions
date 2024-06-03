@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@next/font':
         specifier: 14.2.3
-        version: 14.2.3(next@14.2.3(@babel/core@7.24.4)(@playwright/test@1.44.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.2))
+        version: 14.2.3(next@14.2.3(@babel/core@7.24.4)(@playwright/test@1.44.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.2))
       '@types/node':
         specifier: 20.14.0
         version: 20.14.0
@@ -28,7 +28,7 @@ importers:
         version: 14.2.3(eslint@9.2.0)(typescript@5.4.5)
       next:
         specifier: 14.2.3
-        version: 14.2.3(@babel/core@7.24.4)(@playwright/test@1.44.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.2)
+        version: 14.2.3(@babel/core@7.24.4)(@playwright/test@1.44.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.2)
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -41,7 +41,7 @@ importers:
     devDependencies:
       '@playwright/test':
         specifier: ^1.30.0
-        version: 1.44.0
+        version: 1.44.1
       '@types/jest':
         specifier: ^29.4.0
         version: 29.5.12
@@ -68,7 +68,7 @@ importers:
         version: 29.7.0
       playwright:
         specifier: ^1.30.0
-        version: 1.44.0
+        version: 1.44.1
       postcss:
         specifier: ^8.4.21
         version: 8.4.38
@@ -555,8 +555,8 @@ packages:
     resolution: {integrity: sha512-wfzX8kc1PMyUILA+1Z/EqoE4UCXGy0iRGMhPwdfae1+f0OXlLqCk+By+aMzgJBzR9AzS4CDizioG6Ss1gvAFJw==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@playwright/test@1.44.0':
-    resolution: {integrity: sha512-rNX5lbNidamSUorBhB4XZ9SQTjAqfe5M+p37Z8ic0jPFBMo5iCtQz1kRWkEMg+rYOKSlVycpQmpqjSFq7LXOfg==}
+  '@playwright/test@1.44.1':
+    resolution: {integrity: sha512-1hZ4TNvD5z9VuhNJ/walIjvMVvYkZKf71axoF/uiAqpntQJXpG64dlXhoDXE3OczPuTuvjf/M5KWFg5VAVUS3Q==}
     engines: {node: '>=16'}
     hasBin: true
 
@@ -2691,13 +2691,13 @@ packages:
     resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==}
     engines: {node: '>=8'}
 
-  playwright-core@1.44.0:
-    resolution: {integrity: sha512-ZTbkNpFfYcGWohvTTl+xewITm7EOuqIqex0c7dNZ+aXsbrLj0qI8XlGKfPpipjm0Wny/4Lt4CJsWJk1stVS5qQ==}
+  playwright-core@1.44.1:
+    resolution: {integrity: sha512-wh0JWtYTrhv1+OSsLPgFzGzt67Y7BE/ZS3jEqgGBlp2ppp1ZDj8c+9IARNW4dwf1poq5MgHreEM2KV/GuR4cFA==}
     engines: {node: '>=16'}
     hasBin: true
 
-  playwright@1.44.0:
-    resolution: {integrity: sha512-F9b3GUCLQ3Nffrfb6dunPOkE5Mh68tR7zN32L4jCk4FjQamgesGay7/dAAe1WaMEGV04DkdJfcJzjoCKygUaRQ==}
+  playwright@1.44.1:
+    resolution: {integrity: sha512-qr/0UJ5CFAtloI3avF95Y0L1xQo6r3LQArLIg/z/PoGJ6xa+EwzrwO5lpNr/09STxdHuUoP2mvuELJS+hLdtgg==}
     engines: {node: '>=16'}
     hasBin: true
 
@@ -4055,9 +4055,9 @@ snapshots:
     dependencies:
       glob: 10.3.10
 
-  '@next/font@14.2.3(next@14.2.3(@babel/core@7.24.4)(@playwright/test@1.44.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.2))':
+  '@next/font@14.2.3(next@14.2.3(@babel/core@7.24.4)(@playwright/test@1.44.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.2))':
     dependencies:
-      next: 14.2.3(@babel/core@7.24.4)(@playwright/test@1.44.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.2)
+      next: 14.2.3(@babel/core@7.24.4)(@playwright/test@1.44.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.2)
 
   '@next/swc-darwin-arm64@14.2.3':
     optional: true
@@ -4110,9 +4110,9 @@ snapshots:
       tiny-glob: 0.2.9
       tslib: 2.6.2
 
-  '@playwright/test@1.44.0':
+  '@playwright/test@1.44.1':
     dependencies:
-      playwright: 1.44.0
+      playwright: 1.44.1
 
   '@rushstack/eslint-patch@1.5.1': {}
 
@@ -6517,7 +6517,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next@14.2.3(@babel/core@7.24.4)(@playwright/test@1.44.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.2):
+  next@14.2.3(@babel/core@7.24.4)(@playwright/test@1.44.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.2):
     dependencies:
       '@next/env': 14.2.3
       '@swc/helpers': 0.5.5
@@ -6538,7 +6538,7 @@ snapshots:
       '@next/swc-win32-arm64-msvc': 14.2.3
       '@next/swc-win32-ia32-msvc': 14.2.3
       '@next/swc-win32-x64-msvc': 14.2.3
-      '@playwright/test': 1.44.0
+      '@playwright/test': 1.44.1
       sass: 1.77.2
     transitivePeerDependencies:
       - '@babel/core'
@@ -6711,11 +6711,11 @@ snapshots:
     dependencies:
       find-up: 4.1.0
 
-  playwright-core@1.44.0: {}
+  playwright-core@1.44.1: {}
 
-  playwright@1.44.0:
+  playwright@1.44.1:
     dependencies:
-      playwright-core: 1.44.0
+      playwright-core: 1.44.1
     optionalDependencies:
       fsevents: 2.3.2
 
