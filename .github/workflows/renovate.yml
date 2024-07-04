@@ -7,7 +7,7 @@ concurrency:
 on:
   workflow_dispatch:
   schedule:
-    - cron: '00 00,06,12,18 * * *'
+    - cron: '00 00,12 * * *'
 
 env:
   TZ: Asia/Tokyo
@@ -20,12 +20,12 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: コードをチェックアウトする
-        uses: actions/checkout@v4.1.6
-      - uses: pnpm/action-setup@v2
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.6
+      - uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
         with:
           version: 9.0.4
       - name: Node.js のセットアップを行う
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           node-version-file: '.node-version'
           cache: pnpm
@@ -33,7 +33,7 @@ jobs:
         run: |
           pnpm install
       - name: Renovate を実行する
-        uses: renovatebot/github-action@v40.1.12
+        uses: renovatebot/github-action@259200be4d976a76196ec8985b0dddcaf1733b47 # v40.2.0
         with:
           configurationFile: renovate.json
           token: ${{ secrets.MY_PAT }}
