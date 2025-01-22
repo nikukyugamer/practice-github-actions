@@ -1,0 +1,44 @@
+name: PostgreSQL
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+  workflow_dispatch:
+
+env:
+  TZ: Asia/Tokyo
+
+permissions: write-all
+
+jobs:
+  postgresql:
+    name: PostgreSQL を ubuntu-24.04 のイメージのみで実行する
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: コードをチェックアウトする
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - name: PostgreSQL を有効にする
+        # https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md#postgresql
+        run: |
+          sudo systemctl start postgresql.service
+      - name: PostgreSQL が動いていることを確認する
+        run: |
+          sudo systemctl status postgresql.service
+      - name: psql コマンドを実行する
+        # 前述ドキュメントのとおり、デフォルトユーザ名は postgres である
+        run: |
+          sudo -u postgres psql -c 'SELECT version();'
+      - name: users テーブル を作成する（カラムは id, name）
+        run: |
+          sudo -u postgres psql -c 'CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(255));'
+      - name: users テーブル に仮のデータを 2つ 投入する
+        run: |
+          sudo -u postgres psql -c "INSERT INTO users (name) VALUES ('Alice');"
+          sudo -u postgres psql -c "INSERT INTO users (name) VALUES ('Bob');"
+      - name: users テーブル のデータを確認する
+        run: |
+          sudo -u postgres psql -c 'SELECT * FROM users;'
