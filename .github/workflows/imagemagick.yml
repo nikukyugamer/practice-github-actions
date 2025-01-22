@@ -29,8 +29,8 @@ jobs:
           lsb_release -a
       - name: ImageMagick に必要なパッケージをインストールする
         run: |
-          sudo apt update
-          sudo apt install -y libfuse2
+          apt update
+          apt install -y libfuse2
       - name: ImageMagick をダウンロードする
         run: |
           wget https://imagemagick.org/archive/binaries/magick -O /usr/local/bin/magick
