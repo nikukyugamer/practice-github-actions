@@ -42,9 +42,9 @@ jobs:
         run: |
           md5sum after.jpg
 
-  imagemagick_macos_12:
-    name: ImageMagick を実行する (macOS 12)
-    runs-on: macos-12
+  imagemagick_macos_13:
+    name: ImageMagick を実行する (macOS 13)
+    runs-on: macos-13
     timeout-minutes: 10
     steps:
       - name: コードをチェックアウトする
