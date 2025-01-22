@@ -1,0 +1,63 @@
+name: ImageMagick
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+  workflow_dispatch:
+
+env:
+  TZ: Asia/Tokyo
+
+permissions: write-all
+
+jobs:
+  imagemagick_ubuntu_24_04:
+    name: ImageMagick を実行する (Ubuntu 24.04)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: コードをチェックアウトする
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - name: ImageMagick をダウンロードする
+        run: |
+          wget https://imagemagick.org/archive/binaries/magick -O /usr/local/bin/magick
+          chmod +x /usr/local/bin/magick
+      - name: ImageMagick のバージョンを確認する
+        run: |
+          magick -version
+      - name: 変換前の画像をダウンロードする
+        run: |
+          wget -O before.jpg "https://images.unsplash.com/photo-1720048170996-40507a45c720?q=80&w=2513&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      - name: 変換をする
+        run: |
+          magick before.jpg -geometry 50% after.jpg
+      - name: MD5 を取得する
+        run: |
+          md5sum after.jpg
+
+  imagemagick_macos_12:
+    name: ImageMagick を実行する (macOS 12)
+    runs-on: macos-12
+    timeout-minutes: 10
+    steps:
+      - name: コードをチェックアウトする
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - name: ImageMagick をインストールする
+        # TODO: ghostscript も明示的にインストールする必要がある？
+        run: |
+          brew install imagemagick
+      - name: ImageMagick のバージョンを確認する
+        run: |
+          magick -version
+      - name: 変換前の画像をダウンロードする
+        run: |
+          wget -O before.jpg "https://images.unsplash.com/photo-1720048170996-40507a45c720?q=80&w=2513&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      - name: 変換をする
+        run: |
+          magick before.jpg -geometry 50% after.jpg
+      - name: MD5 を取得する
+        run: |
+          md5 after.jpg
