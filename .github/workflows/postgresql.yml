@@ -31,4 +31,14 @@ jobs:
       - name: psql コマンドを実行する
         # 前述ドキュメントのとおり、デフォルトユーザ名は postgres である
         run: |
-          sudo -u postgres psql -c "SELECT version();"
+          sudo -u postgres psql -c 'SELECT version();'
+      - name: users テーブル を作成する（カラムは id, name）
+        run: |
+          sudo -u postgres psql -c 'CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(255));'
+      - name: users テーブル に仮のデータを 2つ 投入する
+        run: |
+          sudo -u postgres psql -c "INSERT INTO users (name) VALUES ('Alice');"
+          sudo -u postgres psql -c "INSERT INTO users (name) VALUES ('Bob');"
+      - name: users テーブル のデータを確認する
+        run: |
+          sudo -u postgres psql -c 'SELECT * FROM users;'
