@@ -35,22 +35,27 @@ jobs:
       - name: 変換前の画像をダウンロードする
         run: |
           wget -O before.jpg "https://images.unsplash.com/photo-1720048170996-40507a45c720?q=80&w=2513&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      - name: 変換をする
+      - name: JPEG へと変換をする
         run: |
-          magick before.jpg -geometry 50% after.jpg
-      - name: MD5 を取得する
+          magick before.jpg -strip -geometry 50% after.jpg
+      - name: 変換後の JPEG の MD5 を取得する
         run: |
           md5sum after.jpg
+      - name: PNG へと変換をする
+        run: |
+          magick before.jpg -strip -geometry 50% after.png
+      - name: 変換後の PNG の MD5 を取得する
+        run: |
+          md5sum after.png
 
-  imagemagick_macos_13:
-    name: ImageMagick を実行する (macOS 13)
+  imagemagick_macos_13_intel:
+    name: ImageMagick を実行する (macOS 13 Intel)
     runs-on: macos-13
     timeout-minutes: 10
     steps:
       - name: コードをチェックアウトする
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - name: ImageMagick をインストールする
-        # TODO: ghostscript も明示的にインストールする必要がある？
         run: |
           brew install imagemagick
       - name: ImageMagick のバージョンを確認する
@@ -59,9 +64,44 @@ jobs:
       - name: 変換前の画像をダウンロードする
         run: |
           wget -O before.jpg "https://images.unsplash.com/photo-1720048170996-40507a45c720?q=80&w=2513&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      - name: 変換をする
+      - name: JPEG へと変換をする
         run: |
-          magick before.jpg -geometry 50% after.jpg
-      - name: MD5 を取得する
+          magick before.jpg -strip -geometry 50% after.jpg
+      - name: 変換後の JPEG の MD5 を取得する
         run: |
           md5 after.jpg
+      - name: PNG へと変換をする
+        run: |
+          magick before.jpg -strip -geometry 50% after.png
+      - name: 変換後の PNG の MD5 を取得する
+        run: |
+          md5 after.png
+
+  imagemagick_macos_15_arm:
+    name: ImageMagick を実行する (macOS 15 Arm)
+    runs-on: macos-15
+    timeout-minutes: 10
+    steps:
+      - name: コードをチェックアウトする
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - name: ImageMagick をインストールする
+        run: |
+          brew install imagemagick
+      - name: ImageMagick のバージョンを確認する
+        run: |
+          magick -version
+      - name: 変換前の画像をダウンロードする
+        run: |
+          wget -O before.jpg "https://images.unsplash.com/photo-1720048170996-40507a45c720?q=80&w=2513&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      - name: JPEG へと変換をする
+        run: |
+          magick before.jpg -strip -geometry 50% after.jpg
+      - name: 変換後の JPEG の MD5 を取得する
+        run: |
+          md5 after.jpg
+      - name: PNG へと変換をする
+        run: |
+          magick before.jpg -strip -geometry 50% after.png
+      - name: 変換後の PNG の MD5 を取得する
+        run: |
+          md5 after.png
