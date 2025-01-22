@@ -1,2 +1,1 @@
-const dayjs = require("dayjs");
-console.log(typeof dayjs); // function
+console.log('Hello, renovate-by-github-actions repository!')
