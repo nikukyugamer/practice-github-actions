@@ -21,6 +21,12 @@ jobs:
     steps:
       - name: コードをチェックアウトする
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - name: ハードウェア情報を表示する
+        run: |
+          lscpu
+      - name: ソフトウェア情報を表示する
+        run: |
+          lsb_release -a
       - name: ImageMagick に必要なパッケージをインストールする
         run: |
           sudo apt update
@@ -55,6 +61,12 @@ jobs:
     steps:
       - name: コードをチェックアウトする
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - name: ハードウェア情報を表示する
+        run: |
+          system_profiler SPHardwareDataType
+      - name: ソフトウェア情報を表示する
+        run: |
+          system_profiler SPSoftwareDataType
       - name: ImageMagick をインストールする
         run: |
           brew install imagemagick
@@ -84,6 +96,12 @@ jobs:
     steps:
       - name: コードをチェックアウトする
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - name: ハードウェア情報を表示する
+        run: |
+          system_profiler SPHardwareDataType
+      - name: ソフトウェア情報を表示する
+        run: |
+          system_profiler SPSoftwareDataType
       - name: ImageMagick をインストールする
         run: |
           brew install imagemagick
