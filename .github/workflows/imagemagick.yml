@@ -56,7 +56,7 @@ jobs:
 
   imagemagick_macos_13_intel:
     name: ImageMagick を実行する (macOS 13 Intel)
-    runs-on: macos-13
+    runs-on: macos-14
     timeout-minutes: 10
     steps:
       - name: コードをチェックアウトする
