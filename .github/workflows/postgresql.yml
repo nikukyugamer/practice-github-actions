@@ -21,13 +21,22 @@ jobs:
     steps:
       - name: コードをチェックアウトする
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: （デバッグ用）PostgreSQL が起動していることを確認する
+        run: |
+          # sudo systemctl status postgresql.service
+          sudo service postgresql status || true
+      # https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md#postgresql
       - name: PostgreSQL を有効にする
-        # https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md#postgresql
         run: |
-          sudo systemctl start postgresql.service
-      - name: PostgreSQL が動いていることを確認する
+          # sudo systemctl start postgresql.service
+          sudo service postgresql start
+      - name: （デバッグ用）PostgreSQL が起動していることを確認する
         run: |
-          sudo systemctl status postgresql.service
+          # sudo systemctl status postgresql.service
+          sudo service postgresql status
+      - name: （デバッグ用）PostgreSQL クライアント のバージョンを確認する
+        run: |
+          psql --version
       - name: psql コマンドを実行する
         # 前述ドキュメントのとおり、デフォルトユーザ名は postgres である
         run: |
