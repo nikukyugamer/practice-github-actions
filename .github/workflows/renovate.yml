@@ -32,7 +32,7 @@ jobs:
           persist-credentials: false
       - name: bun のセットアップを行う
         # https://github.com/oven-sh/setup-bun/releases
-        uses: oven-sh/setup-bun@4bc047ad259df6fc24a6c9b0f9a0cb08cf17fbe5 # v2.0.1
+        uses: oven-sh/setup-bun@735343b667d3e6f658f44d0eca948eb6282f2b76 # v2.0.2
         # with:
         #   bun-version: 1.2.8 # or "latest", "canary", <sha>
       - name: Node.js のセットアップを行う
