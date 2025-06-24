@@ -22,8 +22,6 @@ permissions:
 
 jobs:
   ai_inference:
-    permissions:
-      models: read
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
@@ -37,10 +35,9 @@ jobs:
         id: inference
         uses: actions/ai-inference@d645f067d89ee1d5d736a5990e327e504d1c5a4a # v1.1.0
         with:
-          # token: ${{ secrets.MY_PAT }} # OK
-          token: ${{ secrets.GITHUB_TOKEN }}
-          # model: 'openai/gpt-4-turbo'
-          prompt: 'Hello!'
+          # 無指定や secrets.GITHUB_TOKEN では権限が不足しておりエラーになる
+          token: ${{ secrets.MY_PAT }}
+          prompt: 'こんにちは！'
       - name: Print Output
         id: output
         run: echo "${{ steps.inference.outputs.response }}"
