@@ -2,6 +2,11 @@ name: AI Inference in GitHub Actions
 
 on:
   push:
+    branches:
+      - '**'
+    tags-ignore:
+      - 'v*.*.*'
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -22,6 +27,7 @@ permissions:
 
 jobs:
   ai_inference:
+    name: AI Inference in GitHub Actions
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
