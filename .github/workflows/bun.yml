@@ -19,6 +19,7 @@ env:
 # $ npx @pkgdeps/update-github-actions-permissions ".github/workflows/*.{yaml,yml}"
 permissions:
   contents: read
+  models: read
 
 jobs:
   bun_install:
@@ -41,3 +42,15 @@ jobs:
           node-version-file: '.node-version'
       - name: package.json の依存関係をインストールする ($ bun install)
         run: bun install --frozen-lockfile
+      # https://github.com/actions/ai-inference
+      - name: Test Local Action
+        id: inference
+        uses: actions/ai-inference@d645f067d89ee1d5d736a5990e327e504d1c5a4a # v1.1.0
+        with:
+          model: "openai/gpt-4o"
+          prompt: 'Hello!'
+      - name: Use Response File (Filepath)
+        # response-file は予約語である
+        run: |
+          echo "Response saved to: ${{ steps.inference.outputs.response-file }}"
+          cat "${{ steps.inference.outputs.response-file }}"
