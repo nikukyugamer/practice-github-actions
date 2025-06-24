@@ -35,7 +35,7 @@ jobs:
         id: inference
         uses: actions/ai-inference@d645f067d89ee1d5d736a5990e327e504d1c5a4a # v1.1.0
         with:
-          model: 'openai/gpt-4'
+          model: 'openai/gpt-4-turbo'
           prompt: 'Hello!'
       - name: Print Output
         id: output
