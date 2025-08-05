@@ -39,7 +39,7 @@ jobs:
       # https://github.com/actions/ai-inference
       - name: AI Inference in GitHub Actions
         id: inference
-        uses: actions/ai-inference@4b591cc5298ae9428fff72279eced918e444c409 # v1.2.4
+        uses: actions/ai-inference@0cbed4a10641c75090de5968e66d70eb4660f751 # v1.2.7
         with:
           # 無指定や secrets.GITHUB_TOKEN では権限が不足しておりエラーになる
           token: ${{ secrets.MY_PAT }}
