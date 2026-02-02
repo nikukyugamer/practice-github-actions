@@ -42,7 +42,7 @@ jobs:
       - name: package.json の依存関係をインストールする ($ bun install)
         run: bun install --frozen-lockfile
       - name: Renovate を実行する
-        uses: renovatebot/github-action@957af03d760b2c87fc65cb95628f6d5f95d9c578 # v46.0.0
+        uses: renovatebot/github-action@3c68caaa9db5ff24332596591dc7c4fed8de16ce # v46.0.1
         with:
           configurationFile: renovate.json
           token: ${{ secrets.MY_PAT }}
