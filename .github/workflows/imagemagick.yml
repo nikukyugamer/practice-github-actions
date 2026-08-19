@@ -27,10 +27,15 @@ jobs:
       - name: ソフトウェア情報を表示する
         run: |
           lsb_release -a
-      - name: ImageMagick をインストールする
+      - name: ImageMagick をダウンロードする
         run: |
-          sudo apt update
-          sudo apt install -y imagemagick
+          LATEST_URL=$(curl -s https://api.github.com/repos/ImageMagick/ImageMagick/releases/latest \
+            | grep "browser_download_url" \
+            | grep "gcc-x86_64.AppImage" \
+            | head -1 \
+            | cut -d '"' -f 4)
+          wget -q "$LATEST_URL" -O /usr/local/bin/magick
+          chmod +x /usr/local/bin/magick
       - name: ImageMagick のバージョンを確認する
         run: |
           magick -version
