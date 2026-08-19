@@ -33,7 +33,13 @@ jobs:
           sudo apt install -y libfuse2
       - name: ImageMagick をダウンロードする
         run: |
-          wget https://imagemagick.org/archive/binaries/magick -O /usr/local/bin/magick
+          LATEST_URL=$(curl -s https://api.github.com/repos/ImageMagick/ImageMagick/releases/latest \
+            | grep "browser_download_url" \
+            | grep "gcc-x86_64.AppImage" \
+            | head -1 \
+            | cut -d '"' -f 4)
+          test -n "$LATEST_URL"
+          wget -q "$LATEST_URL" -O /usr/local/bin/magick
           chmod +x /usr/local/bin/magick
       - name: ImageMagick のバージョンを確認する
         run: |
