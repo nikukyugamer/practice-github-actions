@@ -23,7 +23,6 @@ env:
 # $ npx @pkgdeps/update-github-actions-permissions ".github/workflows/*.{yaml,yml}"
 permissions:
   contents: read
-  models: read
 
 jobs:
   ai_inference:
@@ -36,14 +35,18 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+      - name: Install Copilot CLI
+        run: npm install -g @github/copilot
       # https://github.com/actions/ai-inference
       - name: AI Inference in GitHub Actions
         id: inference
         uses: actions/ai-inference@b81b2afb8390ee6839b494a404766bef6493c7d9 # v1.2.8
         with:
-          # 無指定や secrets.GITHUB_TOKEN では権限が不足しておりエラーになる
-          token: ${{ secrets.MY_PAT }}
           prompt: 'こんにちは！'
+        env:
+          # 無指定や secrets.GITHUB_TOKEN では権限が不足しておりエラーになる
+          COPILOT_GITHUB_TOKEN: ${{ secrets.MY_PAT }}
       - name: Print Output
         id: output
         run: echo "${{ steps.inference.outputs.response }}"
