@@ -36,6 +36,8 @@ jobs:
         with:
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: '.node-version'
       - name: Install Copilot CLI
         run: npm install -g @github/copilot@1.0.80
       # https://github.com/actions/ai-inference
