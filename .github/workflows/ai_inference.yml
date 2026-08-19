@@ -44,6 +44,7 @@ jobs:
         uses: actions/ai-inference@2c43c91ae16266ca159d311430343c67a5ffa222 # v3
         with:
           prompt: 'こんにちは！'
+          model: ''
         env:
           # 無指定や secrets.GITHUB_TOKEN では権限が不足しておりエラーになる
           COPILOT_GITHUB_TOKEN: ${{ secrets.MY_PAT }}
