@@ -27,6 +27,10 @@ jobs:
       - name: ソフトウェア情報を表示する
         run: |
           lsb_release -a
+      - name: ImageMagick に必要なパッケージをインストールする
+        run: |
+          sudo apt update
+          sudo apt install -y libfuse2
       - name: ImageMagick をダウンロードする
         run: |
           LATEST_URL=$(curl -s https://api.github.com/repos/ImageMagick/ImageMagick/releases/latest \
